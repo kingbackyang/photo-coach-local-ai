@@ -1,0 +1,38 @@
+[
+  {
+    "case": "arithmetic",
+    "answer": "323",
+    "firstTokenSeconds": 6.602854700000535,
+    "totalSeconds": 7.049960199999987,
+    "usage": {
+      "prompt_tokens": 25,
+      "total_tokens": 29,
+      "completion_tokens": 4
+    },
+    "generationTokensPerSecond": 6.709825757016355
+  },
+  {
+    "case": "chinese",
+    "answer": "1. 善用三分法，将主体置于交叉点，画面更平衡。\n2. 寻找引导线，利用线条延伸视线，增强纵深感。\n3. 做减法构图，剔除杂乱背景，突出视觉焦点。",
+    "firstTokenSeconds": 0.46761899999910383,
+    "totalSeconds": 6.981436699999904,
+    "usage": {
+      "prompt_tokens": 27,
+      "total_tokens": 78,
+      "completion_tokens": 51
+    },
+    "generationTokensPerSecond": 7.675990072610392
+  },
+  {
+    "case": "memory",
+    "answer": "索尼A7M4",
+    "firstTokenSeconds": 0.6673236000006,
+    "totalSeconds": 1.3053816000010556,
+    "usage": {
+      "prompt_tokens": 57,
+      "total_tokens": 63,
+      "completion_tokens": 6
+    },
+    "generationTokensPerSecond": 7.836278206677809
+  }
+]

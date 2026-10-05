@@ -1,0 +1,124 @@
+{
+  "schemaVersion": 1,
+  "verifiedDate": "2026-10-05",
+  "source": "ModelScope",
+  "files": [
+    {
+      "group": "chat",
+      "repo": "unsloth/Qwen3.8-27B-GGUF",
+      "file": "Qwen3.8-27B-UD-Q4_K_M.gguf",
+      "revision": "ba7608d4e5e1f3ea3d016cebd1c972c42686e9da",
+      "destination": "Qwen3.8-27B-GGUF/Qwen3.8-27B-UD-Q4_K_M.gguf",
+      "size": 16464440224,
+      "sha256": "322e194ff79741c7baa497c240f677f54b201b0efab44ca8e50f122b39123482"
+    },
+    {
+      "group": "image",
+      "repo": "unsloth/Qwen-Image-2.1-GGUF",
+      "file": "qwen-image-2.1-Q4_K_M.gguf",
+      "revision": "21bab2b5ff08cf2a08b97c0259fbd82aab55ef0b",
+      "destination": "Qwen-Image-2.1-GGUF/qwen-image-2.1-Q4_K_M.gguf",
+      "size": 4199565024,
+      "sha256": "631d532e7ca71e8d90a87c71d3699761a812039d22e3370e87498d87754660fe"
+    },
+    {
+      "group": "image",
+      "repo": "unsloth/Qwen-Image-2.1-FP8",
+      "file": "vae/qwen_image_2.1_vae_bf16.safetensors",
+      "revision": "eccfb47ae184f538bbf15685addfca983d0b7c73",
+      "destination": "Qwen-Image-2.1-GGUF/vae/qwen_image_2.1_vae_bf16.safetensors",
+      "size": 675508656,
+      "sha256": "71879ffd5321e6d10c3c87513e2b474b1252efa7f3dec2969214a9bf06a6dd5c"
+    },
+    {
+      "group": "image",
+      "repo": "unsloth/Qwen3-VL-8B-Instruct-GGUF",
+      "file": "Qwen3-VL-8B-Instruct-UD-Q4_K_XL.gguf",
+      "revision": "4e2066f88dd47d2862aaf0a83b60cbf1eb784b4a",
+      "destination": "Qwen-Image-2.1-GGUF/text_encoder/Qwen3-VL-8B-Instruct-UD-Q4_K_XL.gguf",
+      "size": 5148699488,
+      "sha256": "e3d1a6e87c5cb31e054f2c3bc0dd82ffde052f613de5eef3665b7bd33c9b703e"
+    },
+    {
+      "group": "chat",
+      "repo": "unsloth/Qwen3.8-27B-GGUF",
+      "file": "mmproj-BF16.gguf",
+      "revision": "41e5718e405d18d3d82d2bf455d4dd177b4e1769",
+      "destination": "Qwen3.8-27B-GGUF/mmproj-BF16.gguf",
+      "size": 931146432,
+      "sha256": "83ee4f4f205fa514161778c41df1ea14144faa0f713510893b63c2395f5c2d53"
+    },
+    {
+      "group": "chat",
+      "repo": "Qwen/Qwen3.8-27B",
+      "file": "chat_template.jinja",
+      "revision": "a23c845fc2aa3b7f3979e32397cea12a57551631",
+      "destination": "Qwen3.8-27B-config/chat_template.jinja",
+      "size": 8952,
+      "sha256": "c3cf9e34abf4f9e36c2d72165aa9c132d3e2a725b6c2586aaa3a8af9d7a81041"
+    },
+    {
+      "group": "chat",
+      "repo": "Qwen/Qwen3.8-27B",
+      "file": "config.json",
+      "revision": "1098534ab5d7220ea0f4a6b9f07bb03729a79c1d",
+      "destination": "Qwen3.8-27B-config/config.json",
+      "size": 4312,
+      "sha256": "191e0af232104ed8b65258cf3fb2b842e288008baca7633c11b82a1ac7203aab"
+    },
+    {
+      "group": "chat",
+      "repo": "Qwen/Qwen3.8-27B",
+      "file": "generation_config.json",
+      "revision": "5817e78397a12a72dd56c474f3f5a18cd5472dcf",
+      "destination": "Qwen3.8-27B-config/generation_config.json",
+      "size": 202,
+      "sha256": "e70c136c1b78ddc1fb0905bac8e733a4dc448d4f852a5dd75143fffc70be550e"
+    },
+    {
+      "group": "chat",
+      "repo": "Qwen/Qwen3.8-27B",
+      "file": "merges.txt",
+      "revision": "1098534ab5d7220ea0f4a6b9f07bb03729a79c1d",
+      "destination": "Qwen3.8-27B-config/merges.txt",
+      "size": 3353259,
+      "sha256": "a9d356d7bdf1ef4949e3e748e95b8e10ad9d4e2e838eddc38a0a7b6b94d1db8d"
+    },
+    {
+      "group": "chat",
+      "repo": "Qwen/Qwen3.8-27B",
+      "file": "preprocessor_config.json",
+      "revision": "1098534ab5d7220ea0f4a6b9f07bb03729a79c1d",
+      "destination": "Qwen3.8-27B-config/preprocessor_config.json",
+      "size": 390,
+      "sha256": "27225450ac9c6529872ee1924fcb0962ff5634834f817040f444118116f4e516"
+    },
+    {
+      "group": "chat",
+      "repo": "Qwen/Qwen3.8-27B",
+      "file": "tokenizer.json",
+      "revision": "1098534ab5d7220ea0f4a6b9f07bb03729a79c1d",
+      "destination": "Qwen3.8-27B-config/tokenizer.json",
+      "size": 12809320,
+      "sha256": "0997f410c57a1f4e53b09e4be8f4a172d90edd9564368fb0847030937229b9f3"
+    },
+    {
+      "group": "chat",
+      "repo": "Qwen/Qwen3.8-27B",
+      "file": "tokenizer_config.json",
+      "revision": "f17d3260b0dac5e741690c873199c757d74d2ff2",
+      "destination": "Qwen3.8-27B-config/tokenizer_config.json",
+      "size": 17928,
+      "sha256": "b11349aafa7cdc6a320767cf7ceb29ed82f7eda5d65e8e0819e76f0ce947bf27"
+    },
+    {
+      "group": "chat",
+      "repo": "Qwen/Qwen3.8-27B",
+      "file": "vocab.json",
+      "revision": "1098534ab5d7220ea0f4a6b9f07bb03729a79c1d",
+      "destination": "Qwen3.8-27B-config/vocab.json",
+      "size": 6722759,
+      "sha256": "ce99b4cb2983d118806ce0a8b777a35b093e2000a503ebde25853284c9dfa003"
+    }
+  ]
+}

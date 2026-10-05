@@ -1,0 +1,168 @@
+{
+  "measuredAt": "2026-10-05T23:38:48.321112+08:00",
+  "model": "qwen3.8-27b",
+  "thinking": false,
+  "maxTokens": 256,
+  "temperature": 0.2,
+  "warmup": {
+    "answer": "准备好了。",
+    "firstTokenSeconds": 0.7818609000023571,
+    "totalSeconds": 1.0432156000024406,
+    "usage": {
+      "prompt_tokens": 17,
+      "total_tokens": 20,
+      "completion_tokens": 3
+    },
+    "generationTokensPerSecond": 7.6524355597942595,
+    "lastContentSeconds": 0.9105649000011908
+  },
+  "cases": [
+    {
+      "case": "arithmetic",
+      "trial": 1,
+      "answer": "323",
+      "firstTokenSeconds": 0.4950024999998277,
+      "totalSeconds": 0.8797897000004014,
+      "usage": {
+        "prompt_tokens": 25,
+        "total_tokens": 29,
+        "completion_tokens": 4
+      },
+      "generationTokensPerSecond": 7.796517139851657,
+      "lastContentSeconds": 0.7519744999990507
+    },
+    {
+      "case": "chinese",
+      "trial": 1,
+      "answer": "1. 善用三分法，将主体置于交叉点，画面更平衡。\n2. 寻找前景引导线，增加照片纵深与层次感。\n3. 保持背景简洁，避免杂乱元素干扰视觉焦点。",
+      "firstTokenSeconds": 0.49827430000004824,
+      "totalSeconds": 6.583146799999668,
+      "usage": {
+        "prompt_tokens": 27,
+        "total_tokens": 75,
+        "completion_tokens": 48
+      },
+      "generationTokensPerSecond": 7.7240731009569945,
+      "lastContentSeconds": 6.453627599999891
+    },
+    {
+      "case": "memory",
+      "trial": 1,
+      "answer": "索尼A7M4",
+      "firstTokenSeconds": 0.7465889000013703,
+      "totalSeconds": 1.382380999999441,
+      "usage": {
+        "prompt_tokens": 57,
+        "total_tokens": 63,
+        "completion_tokens": 6
+      },
+      "generationTokensPerSecond": 7.8642059251997205,
+      "lastContentSeconds": 1.256565200001205
+    },
+    {
+      "case": "arithmetic",
+      "trial": 2,
+      "answer": "323",
+      "firstTokenSeconds": 0.49048129999937373,
+      "totalSeconds": 0.8715201999984856,
+      "usage": {
+        "prompt_tokens": 25,
+        "total_tokens": 29,
+        "completion_tokens": 4
+      },
+      "generationTokensPerSecond": 7.87321189518181,
+      "lastContentSeconds": 0.7423839000002772
+    },
+    {
+      "case": "chinese",
+      "trial": 2,
+      "answer": "1. 善用三分法，将主体置于交叉点，画面更平衡。\n2. 寻找引导线，利用线条延伸视线，增强纵深感。\n3. 做减法，剔除杂乱背景，突出主体，画面更简洁。",
+      "firstTokenSeconds": 0.4956275000004098,
+      "totalSeconds": 7.233191899998928,
+      "usage": {
+        "prompt_tokens": 27,
+        "total_tokens": 80,
+        "completion_tokens": 53
+      },
+      "generationTokensPerSecond": 7.717922518115216,
+      "lastContentSeconds": 7.10283089999939
+    },
+    {
+      "case": "memory",
+      "trial": 2,
+      "answer": "索尼A7M4",
+      "firstTokenSeconds": 0.7174932999987504,
+      "totalSeconds": 1.3445023999993282,
+      "usage": {
+        "prompt_tokens": 57,
+        "total_tokens": 63,
+        "completion_tokens": 6
+      },
+      "generationTokensPerSecond": 7.974365922273525,
+      "lastContentSeconds": 1.2177965000009863
+    },
+    {
+      "case": "arithmetic",
+      "trial": 3,
+      "answer": "323",
+      "firstTokenSeconds": 0.6670450000019628,
+      "totalSeconds": 1.0608047999994596,
+      "usage": {
+        "prompt_tokens": 25,
+        "total_tokens": 29,
+        "completion_tokens": 4
+      },
+      "generationTokensPerSecond": 7.6188579941859755,
+      "lastContentSeconds": 0.9323757000020123
+    },
+    {
+      "case": "chinese",
+      "trial": 3,
+      "answer": "1. 善用三分法，将主体置于交叉点，画面更平衡。\n2. 寻找引导线，利用线条延伸感，增强画面纵深。\n3. 做减法构图，剔除杂乱背景，突出视觉焦点。",
+      "firstTokenSeconds": 0.5011493000019982,
+      "totalSeconds": 6.890326700002333,
+      "usage": {
+        "prompt_tokens": 27,
+        "total_tokens": 78,
+        "completion_tokens": 51
+      },
+      "generationTokensPerSecond": 7.82573356000373,
+      "lastContentSeconds": 6.762432499999704
+    },
+    {
+      "case": "memory",
+      "trial": 3,
+      "answer": "索尼A7M4",
+      "firstTokenSeconds": 0.7111823000013828,
+      "totalSeconds": 1.3417168000014499,
+      "usage": {
+        "prompt_tokens": 57,
+        "total_tokens": 63,
+        "completion_tokens": 6
+      },
+      "generationTokensPerSecond": 7.929780210281068,
+      "lastContentSeconds": 1.2185648000013316
+    }
+  ],
+  "summary": {
+    "arithmetic": {
+      "trials": 3,
+      "medianFirstTokenSeconds": 0.4950024999998277,
+      "medianGenerationTokensPerSecond": 7.796517139851657,
+      "medianTotalSeconds": 0.8797897000004014
+    },
+    "chinese": {
+      "trials": 3,
+      "medianFirstTokenSeconds": 0.49827430000004824,
+      "medianGenerationTokensPerSecond": 7.7240731009569945,
+      "medianTotalSeconds": 6.890326700002333
+    },
+    "memory": {
+      "trials": 3,
+      "medianFirstTokenSeconds": 0.7174932999987504,
+      "medianGenerationTokensPerSecond": 7.929780210281068,
+      "medianTotalSeconds": 1.3445023999993282
+    }
+  },
+  "measurement": "TTFT=request to first nonempty content delta; decode=(completion_tokens-1)/(stream_finish-first_content). Includes EOS/final stream overhead; not a standardized benchmark."
+}

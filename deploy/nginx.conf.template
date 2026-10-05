@@ -1,0 +1,42 @@
+server {
+    listen 80;
+    server_name __IP__;
+    location ^~ /.well-known/acme-challenge/ { root /var/lib/inference-chat/acme; }
+    location / { return 301 https://__IP__:__PUBLIC_PORT__$request_uri; }
+}
+server {
+    listen 443 ssl;
+    server_name __IP__;
+    ssl_certificate /etc/inference-chat/letsencrypt/live/__IP__/fullchain.pem;
+    ssl_certificate_key /etc/inference-chat/letsencrypt/live/__IP__/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    location = /~!frp {
+        proxy_pass http://127.0.0.1:7000;
+        proxy_http_version 1.1;
+        proxy_set_header Upgrade $http_upgrade;
+        proxy_set_header Connection "upgrade";
+        proxy_set_header Host $http_host;
+        proxy_read_timeout 3600s;
+        proxy_send_timeout 3600s;
+        proxy_buffering off;
+    }
+    location / { return 301 https://__IP__:__PUBLIC_PORT__$request_uri; }
+}
+server {
+    listen __PUBLIC_PORT__ ssl;
+    server_name __IP__;
+    ssl_certificate /etc/inference-chat/letsencrypt/live/__IP__/fullchain.pem;
+    ssl_certificate_key /etc/inference-chat/letsencrypt/live/__IP__/privkey.pem;
+    ssl_protocols TLSv1.2 TLSv1.3;
+    client_max_body_size 64k;
+    location / {
+        proxy_pass http://127.0.0.1:18080;
+        proxy_http_version 1.1;
+        proxy_set_header Host $http_host;
+        proxy_set_header X-Forwarded-Proto https;
+        proxy_set_header X-Forwarded-For $remote_addr;
+        proxy_set_header X-Forwarded-Host "";
+        proxy_read_timeout 190s;
+        proxy_buffering off;
+    }
+}

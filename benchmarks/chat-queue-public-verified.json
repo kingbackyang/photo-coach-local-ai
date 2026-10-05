@@ -1,0 +1,18 @@
+{
+  "cases": [
+    {
+      "positions": [
+        1,
+        0
+      ],
+      "answer": "42"
+    },
+    {
+      "positions": [
+        0,
+        0
+      ],
+      "answer": "72"
+    }
+  ]
+}

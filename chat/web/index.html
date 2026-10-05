@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="zh-CN">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="color-scheme" content="light">
+  <title>Photo Coach · 对话</title>
+  <link rel="icon" href="data:,">
+  <link rel="stylesheet" href="/assets/style.css">
+  <script src="/assets/app.js?v=20261005-queue" defer></script>
+</head>
+<body>
+  <header class="topbar">
+    <a class="brand" href="/" aria-label="Photo Coach 首页"><span class="brand-icon" aria-hidden="true">◉</span><span>Photo Coach</span></a>
+    <div class="top-actions"><span id="status" class="status">正在连接</span><button id="new-chat" class="subtle" type="button">新对话 <span aria-hidden="true">＋</span></button></div>
+  </header>
+  <main>
+    <div class="model-tag" id="model">Qwen3.8 · 27B</div>
+    <section id="messages" class="messages" aria-label="对话记录" aria-live="polite">
+      <div id="welcome" class="welcome">
+        <div class="welcome-mark" aria-hidden="true">✦</div>
+        <h1>今天想聊些什么？</h1>
+        <p>从一个问题、一段想法，或一份计划开始。</p>
+        <div class="suggestions">
+          <button type="button" data-prompt="帮我规划一个周末的摄影练习。">规划一次摄影练习 <span aria-hidden="true">↗</span></button>
+          <button type="button" data-prompt="请用简单的例子解释光圈、快门和 ISO 的关系。">聊聊摄影基础 <span aria-hidden="true">↗</span></button>
+          <button type="button" data-prompt="帮我把一个想法整理成可执行的步骤。">把想法变成计划 <span aria-hidden="true">↗</span></button>
+        </div>
+      </div>
+    </section>
+    <div class="composer-area">
+      <p id="notice" class="notice" role="status"></p>
+      <form id="chat-form" class="composer">
+        <label for="prompt" class="sr-only">消息内容</label>
+        <textarea id="prompt" placeholder="输入你的问题…" rows="2" maxlength="6000"></textarea>
+        <div class="composer-bottom">
+          <label class="thinking"><input id="thinking" type="checkbox"><span>深入思考</span></label>
+          <div class="send-actions"><span class="keyboard-hint">Enter 发送</span><button id="send" type="submit" aria-label="发送消息">↑</button></div>
+        </div>
+      </form>
+      <p class="footnote">AI 的回答可能有误，请核实重要信息。</p>
+    </div>
+  </main>
+  <dialog id="login-dialog">
+    <form id="login-form">
+      <span class="login-mark" aria-hidden="true">◉</span>
+      <h2>欢迎来到 Photo Coach</h2>
+      <p>输入访问密码，开始对话。</p>
+      <label for="password">访问密码</label>
+      <input id="password" type="password" autocomplete="current-password" required maxlength="256">
+      <p id="login-error" role="alert"></p>
+      <button type="submit">进入对话 <span aria-hidden="true">→</span></button>
+    </form>
+  </dialog>
+</body>
+</html>

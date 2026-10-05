@@ -1,0 +1,93 @@
+#!/bin/bash
+set -euo pipefail
+umask 027
+export DEBIAN_FRONTEND=noninteractive NEEDRESTART_MODE=l
+apt-get update -qq
+apt-get install -y -qq nginx python3-venv
+mkdir -p /opt/inference-chat /etc/inference-chat /var/lib/inference-chat/acme /var/log/inference-chat
+chmod 755 /opt/inference-chat /var/lib/inference-chat
+install -d -o root -g www-data -m 2755 /var/lib/inference-chat/acme /var/lib/inference-chat/acme/.well-known /var/lib/inference-chat/acme/.well-known/acme-challenge
+test ! -e /etc/nginx/conf.d/inference-chat.conf || cp -a /etc/nginx/conf.d/inference-chat.conf /etc/inference-chat/nginx-before.conf
+install -m 640 /root/frp_0.71.0_linux_amd64.tar.gz /opt/inference-chat/frp.tar.gz
+echo '84f27e39f11169f7adcef8e8b70c9329de17747b1f14dad9fb95eef5682ea716  /opt/inference-chat/frp.tar.gz' | sha256sum --check
+tar -xzf /opt/inference-chat/frp.tar.gz -C /opt/inference-chat
+install -m 755 /opt/inference-chat/frp_0.71.0_linux_amd64/frps /opt/inference-chat/frps
+id inference-relay >/dev/null 2>&1 || useradd --system --no-create-home --shell /usr/sbin/nologin inference-relay
+chown root:inference-relay /etc/inference-chat
+chmod 750 /etc/inference-chat
+cat > /etc/inference-chat/relay-token <<'TOKEN'
+__RELAY_TOKEN__
+TOKEN
+cat > /etc/inference-chat/frps.toml <<'FRPS'
+bindAddr = "127.0.0.1"
+bindPort = 7000
+proxyBindAddr = "127.0.0.1"
+auth.method = "token"
+auth.tokenSource.type = "file"
+auth.tokenSource.file.path = "/etc/inference-chat/relay-token"
+allowPorts = [{ single = 18080 }]
+maxPortsPerClient = 1
+log.to = "console"
+log.level = "warn"
+FRPS
+chown root:inference-relay /etc/inference-chat/{relay-token,frps.toml}
+chmod 640 /etc/inference-chat/{relay-token,frps.toml}
+/opt/inference-chat/frps verify -c /etc/inference-chat/frps.toml
+cat > /etc/systemd/system/inference-relay.service <<'SERVICE'
+[Unit]
+Description=Private relay for the local inference chat
+After=network-online.target
+Wants=network-online.target
+[Service]
+User=inference-relay
+Group=inference-relay
+ExecStart=/opt/inference-chat/frps -c /etc/inference-chat/frps.toml
+Restart=on-failure
+RestartSec=5
+NoNewPrivileges=true
+PrivateTmp=true
+ProtectSystem=strict
+ProtectHome=true
+[Install]
+WantedBy=multi-user.target
+SERVICE
+cat > /etc/nginx/conf.d/inference-chat.conf <<'NGINX_HTTP'
+server {
+    listen 80;
+    server_name __IP__;
+    location ^~ /.well-known/acme-challenge/ { root /var/lib/inference-chat/acme; }
+    location / { return 503; }
+}
+NGINX_HTTP
+nginx -t
+systemctl reload nginx
+python3 -m venv /opt/inference-chat/certbot
+/opt/inference-chat/certbot/bin/pip install --quiet --index-url https://mirrors.cloud.tencent.com/pypi/simple 'certbot>=5.4,<6'
+/opt/inference-chat/certbot/bin/certbot certonly --non-interactive --agree-tos --register-unsafely-without-email --preferred-profile shortlived --webroot --webroot-path /var/lib/inference-chat/acme --ip-address __IP__ --config-dir /etc/inference-chat/letsencrypt --work-dir /var/lib/inference-chat/letsencrypt --logs-dir /var/log/inference-chat/letsencrypt
+cat > /etc/nginx/conf.d/inference-chat.conf <<'NGINX_TLS'
+__NGINX_CONFIG__
+NGINX_TLS
+nginx -t
+systemctl reload nginx
+cat > /etc/systemd/system/inference-cert-renew.service <<'RENEW'
+[Unit]
+Description=Renew the inference IP certificate
+[Service]
+Type=oneshot
+ExecStart=/opt/inference-chat/certbot/bin/certbot renew --quiet --config-dir /etc/inference-chat/letsencrypt --work-dir /var/lib/inference-chat/letsencrypt --logs-dir /var/log/inference-chat/letsencrypt --deploy-hook "nginx -t && systemctl reload nginx"
+RENEW
+cat > /etc/systemd/system/inference-cert-renew.timer <<'TIMER'
+[Unit]
+Description=Check the inference IP certificate twice daily
+[Timer]
+OnBootSec=5min
+OnUnitActiveSec=12h
+RandomizedDelaySec=20min
+Persistent=true
+[Install]
+WantedBy=timers.target
+TIMER
+systemctl daemon-reload
+systemctl enable --now inference-relay.service inference-cert-renew.timer
+systemctl is-active inference-relay.service inference-cert-renew.timer
+echo INFERENCE_DEPLOY_COMPLETE

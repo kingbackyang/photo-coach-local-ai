@@ -1,0 +1,88 @@
+{
+  "responses": [
+    {
+      "name": "first",
+      "positions": [
+        0,
+        0
+      ],
+      "answer": "first finished"
+    },
+    {
+      "name": "second",
+      "positions": [
+        1,
+        1,
+        0
+      ],
+      "answer": "second finished"
+    },
+    {
+      "name": "cancelled-waiter",
+      "positions": [
+        2
+      ],
+      "answer": "",
+      "cancelled": true
+    },
+    {
+      "name": "fourth",
+      "positions": [
+        2,
+        2,
+        0
+      ],
+      "answer": "fourth finished"
+    },
+    {
+      "name": "after-cancelled-active",
+      "positions": [
+        1,
+        0
+      ],
+      "answer": "after-cancelled-active finished"
+    }
+  ],
+  "upstreamEvents": [
+    {
+      "name": "first",
+      "event": "started"
+    },
+    {
+      "name": "first",
+      "event": "finished"
+    },
+    {
+      "name": "second",
+      "event": "started"
+    },
+    {
+      "name": "second",
+      "event": "finished"
+    },
+    {
+      "name": "fourth",
+      "event": "started"
+    },
+    {
+      "name": "fourth",
+      "event": "finished"
+    },
+    {
+      "name": "cancelled-active",
+      "event": "started"
+    },
+    {
+      "name": "cancelled-active",
+      "event": "cancelled"
+    },
+    {
+      "name": "after-cancelled-active",
+      "event": "started"
+    },
+    {
+      "name": "after-cancelled-active",
+      "event": "finished"
+    }
+  ]
+}
