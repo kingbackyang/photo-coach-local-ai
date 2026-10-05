@@ -70,6 +70,8 @@ docker build --network none -t local/vllm-gguf:qwen38-e2b8ad5 docker/vllm-gguf
 - Qwen-Image-2.1 的 GGUF、VAE、文本编码器已下载并校验，下载清单包含它们；尚未完成生图推理验证或网页接入。
 - vLLM 的 GGUF 支持仍是实验性功能。本项目固定版本与插件提交；升级框架、换模型或换显卡后应重新验证兼容性。[vLLM 官方说明](https://docs.vllm.ai/en/v0.31.0/features/quantization/gguf/)
 
+验证记录：固定源码镜像重建通过，并用独立 0.6B GGUF 完成实际 CUDA 生成；新的 Python 虚拟环境通过登录、真实聊天和双请求排队；GitHub Actions 的受控队列测试通过。0.6B 仅用于检查重建镜像，表格中的性能数据来自 27B。[镜像验证记录](benchmarks/image-build-smoke-verified.json)
+
 ## 代码结构
 
 ```text

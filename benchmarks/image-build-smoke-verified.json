@@ -1,0 +1,7 @@
+{
+  "image": "local/vllm-gguf:qwen38-e2b8ad5",
+  "pluginCommit": "e2b8ad532b8b5ea175100202c30430c1d2b5e6a8",
+  "model": "Qwen3-0.6B-GGUF Q4_K_M",
+  "answer": "2加3等于5。",
+  "testPurpose": "Verify rebuilt CUDA extension and vLLM compatibility, not a 27B performance benchmark"
+}
