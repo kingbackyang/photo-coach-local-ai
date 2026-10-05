@@ -1,6 +1,6 @@
 # Twitter / X 发布草稿
 
-这些是可复用的文案，尚未代为发布。仓库链接已放入正文，截图可使用 `assets/chat-demo.png`。不要附上自己的公网访问密码、FRP 令牌或服务器私有配置。
+这些是可复用的文案，尚未代为发布。仓库链接已放入正文。英文推文可配 [英文发布卡片](../assets/twitter-card-en.png)，也可使用真实网页截图 `assets/chat-demo.png`。英文文案、图片说明与测速条件见 [TWITTER.en.md](TWITTER.en.md)。不要附上自己的公网访问密码、FRP 令牌或服务器私有配置。
 
 ## 中文短帖
 
@@ -13,11 +13,11 @@ https://github.com/kingbackyang/photo-coach-local-ai
 
 ## English short post
 
-Open-sourced Photo Coach: Qwen3.8-27B GGUF on a single RTX 3090, Windows + Docker, with an HTTPS chat UI via a small VPS. Streaming + FIFO queue.
+I open-sourced Photo Coach: Qwen3.8-27B GGUF on one RTX 3090, Windows + Docker. HTTPS chat via a small VPS, streaming + automatic queuing.
 
-Warm short-prompt test: ~0.50s TTFT, ~7.72 tok/s.
+Warm short-prompt test: ~0.50s TTFT, 7.72 tokens/s.
 
-Guide, code & raw results:
+Code, guide & raw benchmarks:
 https://github.com/kingbackyang/photo-coach-local-ai
 
 ## 中文线程：逐条发布

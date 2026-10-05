@@ -30,7 +30,7 @@
 2. [公网发布教程](docs/PUBLIC_DEPLOYMENT.zh-CN.md)：云服务器、防火墙、FRP、HTTPS、开机启动、排障。
 3. [实测速度与复现方法](docs/BENCHMARKS.zh-CN.md)：原始数据、测试口径、性能限制。
 4. [安全与开源边界](SECURITY.md)：密码、队列、代理和模型许可证。
-5. [Twitter/X 发布文案](docs/TWITTER.zh-CN.md)：可直接使用的中英文短帖和中文线程草稿。
+5. [Twitter/X 发布文案](docs/TWITTER.zh-CN.md)：可直接使用的中英文短帖和中文线程草稿；[英文推文与配图](docs/TWITTER.en.md)。
 
 ## 安装主线
 
